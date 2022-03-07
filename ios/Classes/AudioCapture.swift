@@ -19,6 +19,7 @@ class AudioCapture {
     try audioSession.setCategory(AVAudioSession.Category.playAndRecord,
                                   mode: AVAudioSession.Mode.default,
                                   options: [.allowBluetoothA2DP, .allowAirPlay, .allowBluetooth])
+    try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
     try audioSession.setActive(true)
 
     let inputNode = audioEngine.inputNode
@@ -62,6 +63,7 @@ class AudioCapture {
   public func stopSession() throws {
     let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
     audioEngine.stop()
-    try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
+    try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+    try audioSession.setActive(true)
   }
 }
