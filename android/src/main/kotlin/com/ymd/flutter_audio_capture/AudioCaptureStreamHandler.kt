@@ -65,7 +65,7 @@ public class AudioCaptureStreamHandler: StreamHandler {
         val bufferSize: Int = AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, AUDIO_FORMAT)
         val audioBuffer: FloatArray = FloatArray(bufferSize)
         val record: AudioRecord = AudioRecord.Builder()
-                        .setAudioSource(MediaRecorder.AudioSource.DEFAULT)
+                        .setAudioSource(MediaRecorder.AudioSource.VOICE_PERFORMANCE)
                         .setAudioFormat(
                           AudioFormat.Builder()
                             .setEncoding(AUDIO_FORMAT)
