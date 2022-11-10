@@ -19,7 +19,6 @@ class AudioCapture {
     try audioSession.setCategory(AVAudioSession.Category.playAndRecord,
                                   mode: AVAudioSession.Mode.default,
                                   options: [.mixWithOthers, .defaultToSpeaker, .allowBluetoothA2DP, .allowAirPlay, .allowBluetooth])
-    try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
     try audioSession.setActive(true)
 
     let inputNode = audioEngine.inputNode
